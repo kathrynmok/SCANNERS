@@ -18,13 +18,13 @@ public class ScannerReadCSVFile
         // Set the delimiter as a new-line character so we can read the
         // data one line at a time
         scanner.useDelimiter("\n");
-scanner.nextLine();//to skip first line without numbers
+
         // Continue while there's still data in the file to be read
         while (scanner.hasNext()) {
             // Read the next line of the file
             String line = scanner.nextLine();
             System.out.println(line);
-             scanner.skip("[ \t]*");
+
             // line now contains a line of comma-separated numbers
             // representing 10 test scores for each class.
             //
@@ -41,22 +41,18 @@ scanner.nextLine();//to skip first line without numbers
             //
             // Class: Avg score
             // 2125:  55
-            // 1628:  47 
+            // 1628:  47
             //
             // Pay attention to the spacing on your output
             //
             // Write your code in the space below!
-           Scanner linescanner = new Scanner(line).useDelimiter("\\s*,\\s*");
-            while (linescanner.hasNext()) {
-                String room = linescanner.Int();
-                int score = linescanner.nextInt();
-                System.out.println(score);
-                //String str = linescanner.next();
-               //System.out.print(linescanner.next());
-            }
-        
+            
+            
+            
+            
         }
     }
+
     public static void main (String[] args) {
         try {
             ScannerReadCSVFile srCsv = new ScannerReadCSVFile();
