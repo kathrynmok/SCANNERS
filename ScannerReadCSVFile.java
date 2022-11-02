@@ -11,20 +11,21 @@ public class ScannerReadCSVFile
         // Mr. Jaffe's code to read data from a file
         // Instantiate a File object
         File dataFile = new File("TestScoresByClass.csv");
-
+        System.out.println("Class: Avg score");
         // Instantiate a Scanner object that uses the file
         Scanner scanner = new Scanner(dataFile);
 
         // Set the delimiter as a new-line character so we can read the
         // data one line at a time
         scanner.useDelimiter("\n");
-
+    scanner.nextLine();//to skip first line without numbers
         // Continue while there's still data in the file to be read
         while (scanner.hasNext()) {
             // Read the next line of the file
             String line = scanner.nextLine();
-            System.out.println(line);
-
+            
+            //System.out.println(line);
+            // scanner.skip("[ \t]*");
             // line now contains a line of comma-separated numbers
             // representing 10 test scores for each class.
             //
@@ -41,18 +42,25 @@ public class ScannerReadCSVFile
             //
             // Class: Avg score
             // 2125:  55
-            // 1628:  47
+            // 1628:  47 
             //
             // Pay attention to the spacing on your output
             //
             // Write your code in the space below!
-            
-            
-            
-            
+           Scanner linescanner = new Scanner(line).useDelimiter("\\s*,\\s*");
+           String first = line.substring(0,4);
+           String room = linescanner.next();
+           int total = 0;
+            while (linescanner.hasNext()) {
+                int score = linescanner.nextInt();
+                total = total +score;
+                //String str = linescanner.next();
+               //System.out.print(linescanner.next());
+            }
+            int average = total / 10;
+            System.out.println(first + ":" +    average);
         }
     }
-
     public static void main (String[] args) {
         try {
             ScannerReadCSVFile srCsv = new ScannerReadCSVFile();
