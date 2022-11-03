@@ -18,7 +18,7 @@ public class ScannerReadCSVFile
         // Set the delimiter as a new-line character so we can read the
         // data one line at a time
         scanner.useDelimiter("\n");
-    scanner.nextLine();//to skip first line without numbers
+        scanner.nextLine();//to skip first line without numbers
         // Continue while there's still data in the file to be read
         while (scanner.hasNext()) {
             // Read the next line of the file
@@ -48,14 +48,11 @@ public class ScannerReadCSVFile
             //
             // Write your code in the space below!
            Scanner linescanner = new Scanner(line).useDelimiter("\\s*,\\s*");
-           String first = line.substring(0,4);
-           String room = linescanner.next();
+           String first = linescanner.next();
            int total = 0;
             while (linescanner.hasNext()) {
                 int score = linescanner.nextInt();
                 total = total +score;
-                //String str = linescanner.next();
-               //System.out.print(linescanner.next());
             }
             int average = total / 10;
             System.out.println(first + ":" +    average);
